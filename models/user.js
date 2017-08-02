@@ -18,6 +18,14 @@ const UserSchema = mongoose.Schema({
     password:{
         type: String,
         required: true
+    },
+    numposte:{
+        type: Number,
+        required: true
+    },
+    site:{
+        type: String,
+        required: true
     }
 });
 
@@ -27,8 +35,8 @@ module.exports.getUserById = function(id,callback){
     User.findById(id,callback);
 }
 
-module.exports.getUserByUsername= function(username,callback){
-    const query = {username:username}
+module.exports.getUserByUserEmail= function(email,callback){
+    const query = {email:email}
     User.findOne(query,callback);
 }
 

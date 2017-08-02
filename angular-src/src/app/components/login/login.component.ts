@@ -9,7 +9,7 @@ import {FlashMessagesService} from 'angular2-flash-messages';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: String;
+  email: String;
   password: String;
 
   constructor(
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   onLoginSubmit(){
     const user = {
-      username: this.username,
+      email: this.email,
       password: this.password
     }
 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         this.flashMessage.show('You are now logged in', {cssClass:'alert-success',timeout:3000});
         this.router.navigate(['dashboard']);
       }else{
-        this.flashMessage.show(data.msg, {cssClass:'alert-danger',timeout:5000});
+        this.flashMessage.show(data.msg, {cssClass:'alert-danger',timeout:3000});
         this.router.navigate(['login']);
       }
     });

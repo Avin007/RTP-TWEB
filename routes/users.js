@@ -10,7 +10,9 @@ router.post('/register', (req,res,next)=>{
       name: req.body.name,
       email: req.body.email,
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
+      numposte: req.body.numposte,
+      site: req.body.site,
   });
   User.addUser(newUser,(err,user)=>{
       if(err){
@@ -22,13 +24,13 @@ router.post('/register', (req,res,next)=>{
 });
 
 router.post('/authenticate', (req,res,next)=>{
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
     
-    User.getUserByUsername(username,(err,user)=>{
+    User.getUserByUserEmail(email,(err,user)=>{
         if(err) throw err;
         if(!user){
-            return res.json({success:false, msg :'User not found'});
+            return res.json({success:false, msg :'Email not found'});
         }
         User.comparePassword(password,user.password,(err,isMatch)=>{
             if(err) throw err;
@@ -43,7 +45,9 @@ router.post('/authenticate', (req,res,next)=>{
                         id: user._id,
                         name:user.name,
                         username:user.username,
-                        email:user.email
+                        email:user.email,
+                        numposte:user.numposte,
+                        site: user.site,
                     }
                 });
             }else{
