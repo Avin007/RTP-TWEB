@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes} from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -14,15 +15,20 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
+import {ItemService} from './services/item/item.service';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {AuthGuard} from './guards/auth.guard';
+import { DeploiementComponent } from './components/deploiement/deploiement.component';
+import { DeploiementProfileComponent } from './components/deploiement-profile/deploiement-profile.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
-  {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]}
+  {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path:'deploiement', component: DeploiementComponent, canActivate:[AuthGuard]},
+  {path:'deploiement-profile', component: DeploiementProfileComponent, canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -33,7 +39,9 @@ const appRoutes: Routes = [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    DeploiementComponent,
+    DeploiementProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +50,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard, ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

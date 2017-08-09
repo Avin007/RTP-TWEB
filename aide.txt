@@ -1,0 +1,4 @@
+ng serve
+ng build
+ng g component navbar
+ng g service auth

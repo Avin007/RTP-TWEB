@@ -1,0 +1,48 @@
+<h2 class="page-header">Register deployment</h2>
+<form (submit)="onRegisterSubmit()">
+  <div class="form-group">
+    <label>LICAO</label>
+    <input type="text" [(ngModel)]="licao" name="licao" class ="form-control">
+  </div>
+  <div class="form-group">
+    <label>Company name</label>
+    <input type="text" [(ngModel)]="name_companie" name="name_companie" class ="form-control">
+  </div>
+  <div class="form-group">
+    <label>login</label>
+    <input type="text" [(ngModel)]="login" name="login" class ="form-control">
+  </div>
+  <div class="form-group">
+    <label>Type of Deployment</label>
+    <select class="form-control" name="type_deploiement" [(ngModel)]="type_deploiement">
+      <option>Formation</option>
+      <option>Deployment</option>
+      <option>Formation and Deployment</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Application name</label>
+    <select class="form-control" name="name_application" [(ngModel)]="name_application">
+      <option>AirFASE</option>
+      <option>Airman</option>
+      <option>AirmanWEB</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Date departure</label>
+    <input type="date" [(ngModel)]="date_depart" name="date_depart" class ="form-control">
+  </div>
+  <div class="form-group">
+    <label>Date back</label>
+    <input type="date" [(ngModel)]="date_retour" name="date_retour" class ="form-control">
+  </div>
+  <div class="form-group">
+    <label>Number of day(s)</label>
+    <input type="number" [(ngModel)]="day_number" name="day_number" class ="form-control">
+  </div>
+  <div class="form-group">
+    <label>Document</label>
+    <input type="file" [(ngModel)]="document" name="document" class ="form-control">
+  </div>
+   <input type="submit" class="btn btn-primary" value="Submit">
+</form>

@@ -7,22 +7,22 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
 
-  name: String;
+  name: String ;
   username : String;
   email: String;
   password: String;
   numposte: Number;
-  site: String;
+  site: String = "Blagnac Central Entity";
 
   constructor(
     private validateService: ValidateService,
-     private flashMessage: FlashMessagesService,
-      private authService: AuthService,
-      private router: Router
+    private flashMessage: FlashMessagesService,
+    private authService: AuthService,
+    private router: Router
     ) { }
 
   ngOnInit() {

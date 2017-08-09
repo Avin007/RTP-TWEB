@@ -5,6 +5,7 @@ const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
+const Upload = require('upload-file');
 
 //Connect to Database
 mongoose.connect(config.database);
@@ -19,10 +20,11 @@ mongoose.connection.on('error',(err)=>{
  console.log('database error:  '+err);
 });
 
-const app=express();
+const app = express();
 const users = require('./routes/users');
-//const port = 3000;
-const port = process.env.PORT || 8080;
+const deploiements = require('./routes/deploiements');
+const port = 3000;
+//const port = process.env.PORT || 8080;
 
 //CORS Middleware
 app.use(cors());
@@ -40,10 +42,11 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users',users);
+app.use('/deploiements',deploiements);
 
 //Index Route
 app.get('/', (req,res)=>{
-    res.send('Invalid Endpoint');
+    res.send('Invalid Endpoint, please verify database, auth.service, app.js, and run ng build');
 });
 
 app.get('*', (req, res) => {

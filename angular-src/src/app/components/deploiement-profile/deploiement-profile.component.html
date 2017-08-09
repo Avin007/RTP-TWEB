@@ -1,0 +1,30 @@
+<div class="table table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr class="bg-success">
+        <th>LICAO</th>
+        <th>Company</th>
+        <th>Login</th>
+        <th>Type</th>
+        <th>Application</th>
+        <th>Depart</th>
+        <th>Arrived</th>
+        <th>Day(s)</th>
+        <th>Document</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let deploiements of deploiement">
+        <tr>
+          <td> {{deploiements.licao}}</td>
+          <td> {{deploiements.name_companie}}</td>
+          <td> {{deploiements.login}}</td>
+          <td> {{deploiements.type_deploiement}}</td>
+          <td> {{deploiements.name_application}}</td>
+          <td> {{deploiements.date_depart | date}}</td>
+          <td> {{deploiements.date_retour | date}}</td>
+          <td> {{deploiements.day_number}}</td>
+          <td> {{deploiements.document}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>

@@ -27,7 +27,7 @@ router.post('/authenticate', (req,res,next)=>{
     const email = req.body.email;
     const password = req.body.password;
     
-    User.getUserByUserEmail(email,(err,user)=>{
+    User.getUserByEmail(email,(err,user)=>{
         if(err) throw err;
         if(!user){
             return res.json({success:false, msg :'Email not found'});
